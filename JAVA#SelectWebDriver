@@ -1,0 +1,38 @@
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By*;
+import org.openqa.chrome.ChromeDriver;
+
+public class TestWebDriver {
+    public static void main(String[] args){
+    
+    System.setProperty("webdriver.chrome.driver","C:\\Chrome\\chromedriver.exe");
+    
+    //new web driver
+    WebDriver driver = new ChromeDriver();
+    
+    dirver.navigate().to(http://www.google.com);
+    
+    //...find element by id > name > xpath > css > Tagname 
+    
+    WebElement element
+    
+    element = driver.findelement(By.id());
+    element = driver.findelement(By.name());
+    element = driver.findelement(By.xpath());
+    element = driver.findelement(By.cssSelector());
+    
+    //Select option dropdown or radiobutton boolean
+    Select drpGender = new Select(element);
+    
+    drpGender.selectByValue > Index(int) > VisibleText  
+    
+    
+    
+    driver.quit(); //kill current driver
+    
+    driver.close(); //close the driver all
+    
+    }
+}
