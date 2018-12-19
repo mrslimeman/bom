@@ -1,0 +1,47 @@
+import javax.swing.*;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class ReadText {
+
+    public static void main(String[] args) throws IOException, FileNotFoundException {
+        String FilePath = "E:\\data1.txt"; //...ex "D:\\test\\testFile1.txt"
+
+        int countLines = 0; //...Variable to count all line in file
+        String currentLine; //...Variable to check now line cursor
+        try {
+            FileReader fr = new FileReader(FilePath);
+            BufferedReader br1 = new BufferedReader(fr);
+            BufferedReader br2 = new BufferedReader(fr);
+            // of short code here " BufferedReader br = new BufferedReader(new FileReader(FilePath)); "
+
+            while((currentLine = br1.readLine()) != null) {
+            countLines++;  //...count all line in file
+            System.out.println(countLines);
+
+            //int Lines = countLines;
+            //String[] txtData = new String[Lines];
+
+            String thisLine = currentLine; //...check now line cursor
+
+            //...Do Process
+            if (thisLine.equals("Luffy")){
+            System.out.println("I'm the King of Pirate");
+            }
+            else {
+            System.out.println("I'm the Revolutionary");
+            }
+      }
+
+          br1.close();
+          
+      }catch (FileNotFoundException e){
+         e.printStackTrace();
+         JOptionPane.showMessageDialog(null, "ERROR : File Not Found! please check your file",
+            "Error:404", JOptionPane.ERROR_MESSAGE );
+        }
+
+    }
+}
