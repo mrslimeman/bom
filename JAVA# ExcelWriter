@@ -1,0 +1,54 @@
+import javax.swing.JOptionPane;
+
+import Java.io.File;
+import Java.io.FileWriter;
+import Java.io.FileInputStream;
+import Java.io.FileOutputStream;
+import Java.io.FileNotFoundException;
+import Java.io.BufferedWriter;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.ss.usermodel.Cell;
+import org.apache.poi.ss.usermodel.Row;
+
+public class WriteData {
+    
+    public static void main(String[] args){
+    
+      String filePath = "your file path";
+    
+      try{
+        File file = new File(filePath);
+        FileInputStream fs = new FileInputStream(file);
+        XSSFWorkbook wb = new XSSFWorkbook(fs);
+        XSSFSheet sheet = wb.getSheetAt(0);
+        
+        int rowCount = sheet.getLastRowNum();
+        int currentRow = rowCount + 1;
+        
+        //...create First row and first column
+        Row row = sheet.createRow(currentRow); // Create Row
+        Cell cell1 = row.createCell(0);
+        cell1.setCellType(Cell.CELL_TYPE_STRING);
+        cell1.setCellValue("your string or data");
+        
+        //...Create next column in currentrow
+        Row row = sheet.getRow(currentRow); // get Row
+        Cell cell1 = row.createCell(0);
+        cell1.setCellType(Cell.CELL_TYPE_STRING);
+        cell1.setCellValue("your string or data");
+        
+        fs.close();
+        
+        FileOutputStream os = new FileOutputStream(file)
+        wb.write(os);
+        
+        os.close();
+      
+      
+      } catch (FileNotFoundException e){
+         e.printStackTrace();
+      }
+    }
+}
