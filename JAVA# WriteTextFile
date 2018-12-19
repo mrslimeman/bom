@@ -1,0 +1,22 @@
+import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Textfileaction {
+
+    public static void main(String[] args) throws IOException, FileNotFoundException {
+    String FilePath = "E:\\data1.txt"; //...ex "D:\\test\\testFile1.txt"
+
+    //Write the Text
+        FileWriter fw = new FileWriter(FilePath, true);
+        BufferedWriter bw = new BufferedWriter(fw);
+
+        if (bw != null) { //...Check file buffer
+            bw.write("Dragon"); //...ex var.getText() or var.toString()
+            bw.newLine(); //... write in the next line
+        }
+
+        bw.close(); //... pls close writer for work with other ***don't forget***
+    }
+}
