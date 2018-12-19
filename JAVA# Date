@@ -1,0 +1,25 @@
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
+
+public class TestDate {
+    public static void main(String[] args) throws IOException {
+
+        Date date = new Date(); //...function to create today...
+        String pattern = "yyyyMMdd_HHmmss"; //...Format pattern of date will find other in " https://bit.ly/1ODjMxk "...
+
+        SimpleDateFormat format = new SimpleDateFormat(pattern); //...Set format...
+        String dToday = format.format(date); //...Get format to create date...
+        System.out.println("" + dToday);
+
+        //...function create file with date to Filename...
+        String path = "C:" + File.separator + "hello" + File.separator + "hi"+ dToday + ".txt";
+// Use relative path for Unix systems
+        File f = new File(path);
+
+        f.getParentFile().mkdirs();
+        f.createNewFile();
+    }
+}
