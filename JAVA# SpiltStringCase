@@ -1,0 +1,59 @@
+
+import java.io.IOException;
+
+public class test {
+    public static void main(String[] args) throws IOException {
+
+        String word = "38105"; //Main String data
+        String[] digit = word.split(""); //Split Main String to character
+
+        /*
+          split is Array will use Regular Express to part a String ex 19/12/2018 will split with "/" 
+          String can split to 3 index of array [1] = 19, [2] = 12 and [3] = 2018
+          But in this code use "" String will split 1 character of String 
+          Please Try with yourself !!! Good luck :)
+        */
+
+        for (int i = 0 ;i < digit.length ; i++) { // Loop for count index of main String
+
+            char a = word.charAt(i); //find index in main String
+            String s = String.valueOf(a); //Change char to String for equal
+
+            for (int j = 0; j < digit.length; j++) { // Loop for get main String index
+
+                if (digit[j].equals(s)) { // check index equal split
+                    if (s.equals("0")){
+                        System.out.print("A");
+                    }
+                    if (s.equals("1")){
+                        System.out.print("B");
+                    }
+                    if (s.equals("2")){
+                        System.out.print("C");
+                    }
+                    if (s.equals("3")){
+                        System.out.print("D");
+                    }
+                    if (s.equals("4")){
+                        System.out.print("E");
+                    }
+                    if (s.equals("5")){
+                        System.out.print("F");
+                    }
+                    if (s.equals("6")){
+                        System.out.print("G");
+                    }
+                    if (s.equals("7")){
+                        System.out.print("H");
+                    }
+                    if (s.equals("8")){
+                        System.out.print("I");
+                    }
+                    if (s.equals("9")){
+                        System.out.print("J");
+                    }
+                }
+            }
+        }
+    }
+}
