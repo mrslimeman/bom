@@ -1,0 +1,44 @@
+public class searchFile {
+    public static void main(String[] arg) throws IOException {
+        Date date = new Date(); //...function to create today...
+        String pattern = "yyyyMMddHHmmss"; //...Format pattern of date will find other in " https://bit.ly/1ODjMxk "...
+
+        SimpleDateFormat format = new SimpleDateFormat(pattern); //...Set format...
+        String dToday = format.format(date); //...Get format to create date...
+        //System.out.println("" + dToday);
+
+        //...function create file with date to Filename...
+        String path = "C:" + File.separator + "Download" + File.separator + "PREVIEW"+ "_"+ dToday + ".txt";
+// Use relative path for Unix systems
+        File f = new File(path);
+
+        f.getParentFile().mkdirs();
+        f.createNewFile();
+
+        File path = new File("C:\\Download");
+        FilenameFilter filter = new FilenameFilter() {
+            public boolean accept (File dir, String name) {
+                return name.startsWith("PREVIEW");
+            }
+        };
+
+        String[] children = path.list(filter);
+        if (children == null) {
+            System.out.println("Either dir does not exist or is not a directory");
+        } else {
+            for (int i = 0; i< children.length; i++) {
+                String filename = children[i];
+                String[] splitf = filename.split("_");
+
+                if(splitf[1].equals(dToday+".txt")) {
+                    System.out.println("Correct");
+                    for(int x = 0; x <= 10; x++){
+                        System.out.println("File"+"Are Correct");
+                    }
+                }else {
+                    System.out.println("NameFileNotMatches" + i);
+                }
+            }
+        }
+    }
+}
